@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+    .container{
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    form {
+    margin: 30px 0px 20px;
+    padding: 1em;
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+  0 2px 4px rgba(0, 0, 0, 0.24);
+    width: 75%;
+    }
+
+    form div{
+        margin-top: 1em
+    }
+
+    label {
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+    }
+
+    input{
+        font-family:  sans-serif;
+        width: 300px;
+        height: 25px;
+        box-sizing: border-box;
+        border:1px solid #999;
+    }
+
+    textarea{
+        vertical-align: top;
+        height: 7em;
+        font-family:  sans-serif;
+        width: 300px;
+        box-sizing: border-box;
+        border:1px solid #999;
+    }
+
+    .divHolder{
+        background: whitesmoke;
+        border-bottom: #999 dashed 2px;
+        width: 75%;
+    }
+
+    .nameHolder{
+        margin-bottom: 3px;
+    }
+
+    .parHolder{
+        margin-top: 3px;
+        margin-left: 50px
+    }
+    .sub-button{
+        width: 100px;
+        margin-left: 300px;
+        border-radius: 5px;
+        padding: 5px 5px;
+        background: LightBlue ;
+    }
+
+    @media only screen and (max-width: 541px) {
+        .sub-button{
+            margin-left: 200px;
+        }
+    }
+    @media only screen and (max-width: 400px) {
+        input{
+            width: 95%;
+        }
+        textarea{
+            width: 95%;
+        }
+        .sub-button{
+            margin-left: 10px;
+            width: 80px;
+        }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Review Page</title>
+</head>
+<body>
+    <div class="container" id="new">
+
+        <form action="#">
+                <div>
+                    <label for="name">Name</label>
+                    <input  id='name' type="text" name="name" placeholder="Enter Name">
+                </div>
+                <div>
+                    <label for="comment">Comment</label>
+                    <textarea id="msg" name="comment"></textarea>
+                </div>
+                <div>
+                    <button class="sub-button" type="submit" onclick="mma (); return false">Submit</button>
+                </div>
+            </form>
+
+            <h3>What clients are saying</h3>
+            <div class="divHolder">
+                <h4 class="nameHolder">Alibaba</h4>
+                <p class="parHolder">All the things i have said, what did you do with them</p>
+            </div>
+
+    </div>
+
+
+    
+    <script>
+
+        function mma (){
+            const list = document.getElementById('new');
+
+            const div = document.createElement('div');
+            const h4 = document.createElement('h4');
+            const par = document.createElement('p')
+
+            let clientName = document.getElementById('name').value;
+            let clientComment = document.getElementById('msg').value;
+
+
+            h4.textContent = clientName
+            par.textContent = clientComment
+
+            div.classList.add("divHolder");
+            h4.classList.add("nameHolder");
+            par.classList.add("parHolder");
+
+            div.appendChild(h4);
+            div.appendChild(par)
+            list.appendChild(div)
+
+            clearInput();
+
+        }
+
+        function clearInput (){
+            document.getElementById('name').value = '';
+            document.getElementById('msg').value = '';
+        }
+      
+    </script>
+</body>
+</html>
